@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 50%);
+}
+
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.grid-background {
+  background-image: radial-gradient(circle at 1px 1px, rgba(168, 85, 247, 0.15) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Swiper customization */
+.swiper-button-next,
+.swiper-button-prev {
+  color: theme('colors.purple.500') !important;
+}
+
+.swiper-pagination-bullet {
+  background: theme('colors.purple.500') !important;
+}
+
+.feature-carousel {
+  padding: 2rem 0;
+}
+
+/* Logo Animations */
+.animate-logo {
+  transform-origin: center;
+  animation: logoFloat 6s ease-in-out infinite;
+}
+
+.animate-draw path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawLine 2s ease-out forwards;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(5deg);
+  }
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
