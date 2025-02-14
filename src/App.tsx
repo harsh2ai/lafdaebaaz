@@ -13,7 +13,8 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Star
+  Star,
+  MessageSquare, BarChart2, AlertTriangle, Bot
 } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -21,6 +22,8 @@ import Logo from './components/Logo';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { SEO } from './components/SEO';
+import { IPhone } from './components/Iphone';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,7 +41,7 @@ function App() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('YOUR_GOOGLE_SHEETS_WEBHOOK_URL', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzzeLZFGehfWxDQ5E8PL8cgXKIdV7sUZ7y7Hk9TgnxH4SNKNAUSg91bLLG7g_PXvLOG/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,20 +71,31 @@ function App() {
 
   const features = [
     {
-      title: "Smart Call Routing",
-      description: "AI-powered routing ensures customers reach the most qualified agent.",
+      title: "Onboard IQ",
+      description: "AI-powered workflows to streamline user activation through personalized, automated guidance",
       image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80"
     },
     {
-      title: "Real-time Sentiment Analysis",
+      title: "Mood IQ",
       description: "Monitor customer sentiment during calls to improve satisfaction.",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
     },
     {
-      title: "Automated Call Summaries",
+      title: "Dialog IQ",
       description: "Get AI-generated summaries and action items after each call.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+    },
+    {
+      title: "Retention IQ",
+      description: "Predict, analyse and optimizes customer retention through ML-based advanced churn behavioral insights",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+    },
+    {
+      title: "Upsell IQ",
+      description: " AI-powered alert system that intelligently identifies and notifies you of personalized cross-selling and up-selling moments.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
     }
+
   ];
 
   const testimonials = [
@@ -110,6 +124,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-hidden">
+      <SEO/>
       {/* Background Elements */}
       <div className="fixed inset-0 grid-background opacity-40" />
       <div className="fixed inset-0 gradient-bg" />
@@ -127,60 +142,143 @@ function App() {
             <a href="#how-it-works" className="hover:text-purple-400 transition-colors">How it Works</a>
             <a href="#contact" className="hover:text-purple-400 transition-colors">Contact</a>
           </div>
+          <a href="https://calendly.com/love4css/30min">
           <button className="bg-purple-600 px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors relative group">
             <span className="relative z-10">Get Started</span>
             <div className="absolute inset-0 bg-purple-400 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity" />
           </button>
+          </a>
         </nav>
 
         <main>
           {/* Hero Section */}
-          <section className="container mx-auto px-6 py-20 text-center relative hero-gradient">
-            <div className="absolute top-10 left-1/4 w-2 h-2 bg-purple-500 rounded-full pulse" />
-            <div className="absolute top-20 right-1/3 w-3 h-3 bg-purple-400 rounded-full pulse" style={{ animationDelay: '-2s' }} />
-            <div className="absolute bottom-40 right-1/4 w-2 h-2 bg-purple-300 rounded-full pulse" style={{ animationDelay: '-1s' }} />
-            
-            <h1 className="text-5xl md:text-6xl font-bold mb-8 relative">
-              Transform Customer Support with
-              <span className="text-purple-500 relative">
-                {' '}AI Intelligence
-                <div className="absolute -right-8 -top-8">
-                  <Sparkles className="w-6 h-6 text-purple-400 animate-pulse" />
-                </div>
-              </span>
-            </h1>
-            <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-              Enhance your customer support with real-time AI insights, pre-call preparation,
-              and post-call analytics to deliver exceptional customer experiences.
-            </p>
-            <div className="flex justify-center gap-6">
-              <button className="bg-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-700 transition-colors flex items-center gap-2 relative group">
-                <span className="relative z-10">Get in Touch</span>
-                <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute inset-0 bg-purple-400 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity" />
-              </button>
-              <button className="border border-purple-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-500/10 transition-colors relative group">
-                Watch Demo
-                <div className="absolute inset-0 border border-purple-500 rounded-lg blur-sm opacity-0 group-hover:opacity-50 transition-opacity" />
-              </button>
+          <section className="container mx-auto px-6 py-20 text-center relative hero-gradient min-h-screen">
+        <div className="absolute top-10 left-1/4 w-2 h-2 bg-purple-500 rounded-full pulse" />
+        <div className="absolute top-20 right-1/3 w-3 h-3 bg-purple-400 rounded-full pulse" style={{ animationDelay: '-2s' }} />
+        <div className="absolute bottom-40 right-1/4 w-2 h-2 bg-purple-300 rounded-full pulse" style={{ animationDelay: '-1s' }} />
+        
+        <h1 className="text-5xl md:text-6xl font-bold mb-8 relative">
+          Transform Customer Support with
+          <span className="text-purple-500 relative">
+            {' '}AI Intelligence
+            <div className="absolute -right-8 -top-8">
+              <Sparkles className="w-6 h-6 text-purple-400 animate-pulse" />
             </div>
+          </span>
+        </h1>
+        <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+          Enhance your customer support with real-time AI insights, pre-call preparation,
+          and post-call analytics to deliver exceptional customer experiences.
+        </p>
+        <div className="flex justify-center gap-6 flex-wrap">
+          <a href="https://calendly.com/love4css/30min">
+          <button className="bg-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-700 transition-colors flex items-center gap-2 relative group">
+            <span className="relative z-10">Get in Touch</span>
+            <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+            <div className="absolute inset-0 bg-purple-400 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity" />
+          </button>
+          </a>
+          <a href="#demo">
+          <button className="border border-purple-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-500/10 transition-colors relative group">
+            Watch Demo
+            <div className="absolute inset-0 border border-purple-500 rounded-lg blur-sm opacity-0 group-hover:opacity-50 transition-opacity" />
+          </button>
+          </a>
+        </div>
 
-            {/* Video Section */}
-            <div className="mt-20 relative">
-              <div className="absolute inset-0 bg-purple-500/20 blur-3xl -z-10" />
-              <div className="aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent" />
-                <video 
-                  className="w-full h-full object-cover"
-                  poster="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80"
-                  controls
-                >
-                  <source src="https://example.com/demo.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+        {/* Feature Showcase */}
+        <div className="mt-20 relative max-w-6xl mx-auto">
+          <div className="absolute inset-0 bg-purple-500/20 blur-3xl -z-10" />
+          
+          {/* SVG Container for Lines and Nodes */}
+          <div className="relative">
+            <svg className="absolute inset-0 w-full h-full" style={{ minHeight: '600px' }}>
+              {/* Animated Lines */}
+              <g className="feature-lines">
+                {/* Real-time Transcript Line */}
+                <path 
+                  d="M200,300 C300,300 350,200 450,200" 
+                  className="feature-line" 
+                  stroke="url(#purpleGradient)" 
+                  strokeWidth="2" 
+                  fill="none" 
+                />
+                
+                {/* Sentiment Analysis Line */}
+                <path 
+                  d="M900,300 C800,300 750,400 650,400" 
+                  className="feature-line" 
+                  stroke="url(#purpleGradient)" 
+                  strokeWidth="2" 
+                  fill="none" 
+                />
+                
+                {/* Churn Prediction Line */}
+                <path 
+                  d="M200,500 C300,500 350,600 450,600" 
+                  className="feature-line" 
+                  stroke="url(#purpleGradient)" 
+                  strokeWidth="2" 
+                  fill="none" 
+                />
+                
+                {/* Zeus AI Line */}
+                <path 
+                  d="M900,500 C800,500 750,600 650,600" 
+                  className="feature-line" 
+                  stroke="url(#purpleGradient)" 
+                  strokeWidth="2" 
+                  fill="none" 
+                />
+                
+                {/* Gradients */}
+                <defs>
+                  <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="rgb(139, 92, 246)" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="rgb(236, 72, 153)" stopOpacity="0.5" />
+                  </linearGradient>
+                </defs>
+              </g>
+            </svg>
+
+            {/* Feature Nodes */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+              {/* Left Features */}
+              <div className="space-y-16 text-left md:mt-32">
+                <div className="feature-node p-6 bg-purple-900/20 rounded-lg backdrop-blur-sm border border-purple-500/20">
+                  <MessageSquare className="w-8 h-8 text-purple-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Real-time Transcript</h3>
+                  <p className="text-gray-400">Live call transcription with key point highlighting</p>
+                </div>
+                <div className="feature-node p-6 bg-purple-900/20 rounded-lg backdrop-blur-sm border border-purple-500/20">
+                  <BarChart2 className="w-8 h-8 text-purple-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Sentiment Analysis</h3>
+                  <p className="text-gray-400">Real-time customer mood and satisfaction tracking</p>
+                </div>
+              </div>
+
+              {/* Center - iPhone */}
+              <div className="flex justify-center items-center" id="demo">
+                <IPhone screenshotUrl="/app_screenshot.PNG" />
+              </div>
+
+              {/* Right Features */}
+              <div className="space-y-16 text-left md:mt-32">
+                <div className="feature-node p-6 bg-purple-900/20 rounded-lg backdrop-blur-sm border border-purple-500/20">
+                  <AlertTriangle className="w-8 h-8 text-purple-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Churn Prediction</h3>
+                  <p className="text-gray-400">AI-powered risk assessment and early warnings</p>
+                </div>
+                <div className="feature-node p-6 bg-purple-900/20 rounded-lg backdrop-blur-sm border border-purple-500/20">
+                  <Bot className="w-8 h-8 text-purple-400 mb-4" />
+                  <h3 className="text-xl font-semibold mb-2">Zeus AI Chat</h3>
+                  <p className="text-gray-400">Intelligent chatbot for instant customer support</p>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </section>
 
           {/* Features Section */}
           <section className="bg-gray-800/50 py-20 relative" id="features">
@@ -318,13 +416,14 @@ function App() {
               <p className="text-xl mb-12 max-w-2xl mx-auto">
                 Join leading companies using SupportAI to deliver exceptional customer experiences.
               </p>
+              <a href="https://calendly.com/love4css/30min">
               <button
-                onClick={() => setIsModalOpen(true)}
                 className="bg-white text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors relative group"
               >
                 <span className="relative z-10">Schedule a Demo</span>
                 <div className="absolute inset-0 bg-white rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity" />
               </button>
+              </a>
             </div>
           </section>
         </main>
@@ -433,7 +532,7 @@ function App() {
   );
 }
 
-function FeatureCard({ icon, title, description }) {
+function FeatureCard({ icon, title, description }:any) {
   return (
     <div className="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition-colors relative group">
       <div className="absolute inset-0 bg-purple-500/5 rounded-xl group-hover:bg-purple-500/10 transition-colors" />
@@ -451,7 +550,7 @@ function FeatureCard({ icon, title, description }) {
   );
 }
 
-function TechCard({ icon, title }) {
+function TechCard({ icon, title }:any) {
   return (
     <div className="flex flex-col items-center p-6 bg-gray-800 rounded-xl hover:bg-gray-700 transition-colors relative group">
       <div className="absolute inset-0 bg-purple-500/5 rounded-xl group-hover:bg-purple-500/10 transition-colors" />
