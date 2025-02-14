@@ -24,15 +24,17 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { SEO } from './components/SEO';
 import { IPhone } from './components/Iphone';
+import DemoModal from './components/DemoModal';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     mobile: '',
     company: ''
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -178,12 +180,10 @@ function App() {
             <div className="absolute inset-0 bg-purple-400 rounded-lg blur opacity-50 group-hover:opacity-75 transition-opacity" />
           </button>
           </a>
-          <a href="#demo">
-          <button className="border border-purple-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-500/10 transition-colors relative group">
+          <button className="border border-purple-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-500/10 transition-colors relative group"  onClick={() => setIsDemoModalOpen(true)}>
             Watch Demo
             <div className="absolute inset-0 border border-purple-500 rounded-lg blur-sm opacity-0 group-hover:opacity-50 transition-opacity" />
           </button>
-          </a>
         </div>
 
         {/* Feature Showcase */}
@@ -528,6 +528,7 @@ function App() {
           </div>
         )}
       </div>
+      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </div>
   );
 }
